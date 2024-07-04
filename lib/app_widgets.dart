@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:your_app_buscaenderecoporcep/src/pages/home_page.dart';
-import 'package:your_app_buscaenderecoporcep/src/widgets/colors.dart';
+import 'package:your_app_buscaenderecoporcep/pages/home_page.dart';
+import 'package:your_app_buscaenderecoporcep/widgets/colors.dart';
 
 
   class MyApp extends StatelessWidget {
