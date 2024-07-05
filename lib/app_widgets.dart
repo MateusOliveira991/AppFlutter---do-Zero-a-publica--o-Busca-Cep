@@ -17,7 +17,7 @@ import 'package:your_app_buscaenderecoporcep/widgets/colors.dart';
       initialRoute: '/home', 
       routes: {
         '/': (context) => const HomePage(), 
-        // '/home': (context) => const HomePage(), 
+        '/home': (context) => const HomePage(), 
         
       },
     );
