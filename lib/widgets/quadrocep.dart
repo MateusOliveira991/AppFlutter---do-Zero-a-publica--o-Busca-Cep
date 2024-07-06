@@ -1,7 +1,41 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
-class Quadrocep extends StatelessWidget {
-  const Quadrocep({super.key});
+class Quadrocep extends StatefulWidget {
+      Quadrocep({super.key});
+
+      @override
+    _QuadrocepState createState() => 
+    _QuadrocepState();
+} 
+  class _QuadrocepState extends State<Quadrocep> {
+  String resultado = 'Seu endereço será exibido aqui';
+  TextEditingController txtcep = TextEditingController();
+  // Função assíncrona para buscar o CEP
+  Future <void> buscacep() async{
+    //recebe o cep digitado
+    String cep = txtcep.text;
+    //monta a url com o cep
+    String url = 'https://viacep.com.br/ws/$cep/json/';
+
+    // Faz a requisição HTTP e espera pela resposta
+    http.Response response = await http.get(Uri.parse(url));
+    // Decodifica o JSON retornado
+    Map<String, dynamic> dados = json.decode(response.body);
+    // Verifica se o CEP é válido
+    if (dados.containsKey('erro')) {
+      setState(() {
+        resultado = 'CEP não encontrado';
+      });
+    } else {
+      // Atualiza o estado com o endereço retornado
+      setState(() {
+        resultado = '${dados['logradouro']}, ${dados['bairro']}, ${dados['localidade']} - ${dados['uf']}';
+      });
+    }
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -103,14 +137,8 @@ class Quadrocep extends StatelessWidget {
                         color: Colors.grey,
                       ),
                     ),
-                    child: const Text(
-                      'O endereço será exibido aqui',
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.black87,
-                      ),
+                    child: Text(resultado),
                     ),
-                  ),
                 ],
               ),
             ),

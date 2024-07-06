@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:your_app_buscaenderecoporcep/widgets/app_images.dart';
+import 'package:your_app_buscaenderecoporcep/core/app_images.dart';
 import 'package:your_app_buscaenderecoporcep/widgets/quadrocep.dart';
+
 
 
 class HomePage extends StatelessWidget {
@@ -18,7 +19,7 @@ class HomePage extends StatelessWidget {
               fit: BoxFit.fitWidth,
             ),
           ),
-          const SingleChildScrollView(
+           SingleChildScrollView(
             child: Column(
               children: <Widget>[
                 SizedBox(
