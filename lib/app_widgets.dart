@@ -9,6 +9,7 @@ import 'package:your_app_buscaenderecoporcep/core/colors.dart';
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Busca por CEP',
       theme: ThemeData(
         primaryColor: AppColors.primary,
