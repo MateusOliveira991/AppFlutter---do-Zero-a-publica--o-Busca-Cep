@@ -6,5 +6,6 @@ Todos estão desenvolvendo a mesma ideia, que é uma busca de endereço por CEP 
 
 ## Primeira imagem do projeto
 
-![image](https://github.com/MateusOliveira991/AppFlutter-do-Zero-a-publicacao-BuscaCep/assets/142065746/8ade322c-ebfe-483b-98d7-7ba0c5a846ec)
+![image](https://github.com/MateusOliveira991/AppFlutter-do-Zero-a-publicacao-BuscaCep/assets/142065746/151d19df-a136-41a9-a82d-a30f185d7a55)
+
 
