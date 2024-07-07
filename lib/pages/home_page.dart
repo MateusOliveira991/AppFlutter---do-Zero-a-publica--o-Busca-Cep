@@ -19,7 +19,7 @@ class HomePage extends StatelessWidget {
               fit: BoxFit.fitWidth,
             ),
           ),
-           SingleChildScrollView(
+           const SingleChildScrollView(
             child: Column(
               children: <Widget>[
                 SizedBox(

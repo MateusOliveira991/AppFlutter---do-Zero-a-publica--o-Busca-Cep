@@ -1,40 +1,39 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
+import 'package:your_app_buscaenderecoporcep/services/cep_service.dart';
 
 class Quadrocep extends StatefulWidget {
-      Quadrocep({super.key});
+  const Quadrocep({super.key});
 
-      @override
-    _QuadrocepState createState() => 
-    _QuadrocepState();
-} 
-  class _QuadrocepState extends State<Quadrocep> {
+  @override
+  QuadrocepState createState() => QuadrocepState();
+}
+
+class QuadrocepState extends State<Quadrocep> {
   String resultado = 'Seu endereço será exibido aqui';
   TextEditingController txtcep = TextEditingController();
-  // Função assíncrona para buscar o CEP
-  Future <void> buscacep() async{
-    //recebe o cep digitado
-    String cep = txtcep.text;
-    //monta a url com o cep
-    String url = 'https://viacep.com.br/ws/$cep/json/';
+  final CepService _cepService = CepService();
 
-    // Faz a requisição HTTP e espera pela resposta
-    http.Response response = await http.get(Uri.parse(url));
-    // Decodifica o JSON retornado
-    Map<String, dynamic> dados = json.decode(response.body);
-    // Verifica se o CEP é válido
-    if (dados.containsKey('erro')) {
+  // Função assíncrona para buscar o CEP
+  Future<void> buscacep() async {
+    String cep = txtcep.text.trim();
+
+    if (!_cepService.validarCep(cep)) {
       setState(() {
-        resultado = 'CEP não encontrado';
+        resultado = 'CEP inválido. Por favor, insira um CEP válido de 8 dígitos.';
       });
-    } else {
-      // Atualiza o estado com o endereço retornado
+      return;
+    }
+
+    try {
+      Map<String, dynamic> dados = await _cepService.buscarCep(cep);
       setState(() {
         resultado = '${dados['logradouro']}, ${dados['bairro']}, ${dados['localidade']} - ${dados['uf']}';
       });
+    } catch (e) {
+      setState(() {
+        resultado = e.toString();
+      });
     }
-
   }
 
   @override
@@ -61,6 +60,7 @@ class Quadrocep extends StatefulWidget {
               child: Column(
                 children: <Widget>[
                   TextFormField(
+                    controller: txtcep,
                     decoration: InputDecoration(
                       contentPadding: const EdgeInsets.symmetric(
                         horizontal: 8,
@@ -89,7 +89,7 @@ class Quadrocep extends StatefulWidget {
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: buscacep,
                       style: ElevatedButton.styleFrom(
                         padding: const EdgeInsets.symmetric(
                           vertical: 4,
@@ -108,7 +108,12 @@ class Quadrocep extends StatefulWidget {
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        setState(() {
+                          txtcep.clear();
+                          resultado = 'Seu endereço será exibido aqui';
+                        });
+                      },
                       style: ElevatedButton.styleFrom(
                         padding: const EdgeInsets.symmetric(
                           vertical: 4,
@@ -138,7 +143,7 @@ class Quadrocep extends StatefulWidget {
                       ),
                     ),
                     child: Text(resultado),
-                    ),
+                  ),
                 ],
               ),
             ),
