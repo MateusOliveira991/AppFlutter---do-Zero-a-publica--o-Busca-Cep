@@ -18,6 +18,7 @@ class HomePage extends StatelessWidget {
             child: Image.asset(
               AppImages.onde,
               fit: BoxFit.fitWidth,
+              
             ),
           ),
            const SingleChildScrollView(
@@ -27,7 +28,7 @@ class HomePage extends StatelessWidget {
                   height: 310,
                 ),
                 Padding(
-                  padding: EdgeInsets.all(16.0),
+                  padding: EdgeInsets.only(left: 10, right: 10, top: 35),
                   child: Quadrocep(),
                 ),
               ],
