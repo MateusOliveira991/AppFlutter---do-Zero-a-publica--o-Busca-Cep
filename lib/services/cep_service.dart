@@ -1,6 +1,8 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
+import 'package:your_app_buscaenderecoporcep/models/cep_model.dart';
+
 class CepService {
   // Função para validar o CEP
   bool validarCep(String cep) {
@@ -9,7 +11,7 @@ class CepService {
   }
 
   // Função assíncrona para buscar o CEP
-  Future<Map<String, dynamic>> buscarCep(String cep) async {
+  Future<CepModel> buscarCep(String cep) async {
     String url = 'https://viacep.com.br/ws/$cep/json/';
 
     // Faz a requisição HTTP e espera pela resposta
@@ -24,7 +26,7 @@ class CepService {
       if (dados.containsKey('erro')) {
         throw Exception('CEP não encontrado');
       } else {
-        return dados;
+        return CepModel.fromJson(json.decode(response.body));
       }
     } else {
       throw Exception('Erro ao buscar CEP: ${response.statusCode}');

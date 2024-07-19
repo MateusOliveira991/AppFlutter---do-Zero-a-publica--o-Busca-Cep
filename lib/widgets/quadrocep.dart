@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:your_app_buscaenderecoporcep/models/cep_model.dart';
 import 'package:your_app_buscaenderecoporcep/services/cep_service.dart';
 
 class Quadrocep extends StatefulWidget {
@@ -9,7 +10,7 @@ class Quadrocep extends StatefulWidget {
 }
 
 class QuadrocepState extends State<Quadrocep> {
-  String resultado = 'Seu endereço será exibido aqui';
+  String resultado = 'O endereço será exibido aqui';
   TextEditingController txtcep = TextEditingController();
   final CepService _cepService = CepService();
 
@@ -25,9 +26,9 @@ class QuadrocepState extends State<Quadrocep> {
     }
 
     try {
-      Map<String, dynamic> dados = await _cepService.buscarCep(cep);
+      CepModel dados = await _cepService.buscarCep(cep);
       setState(() {
-        resultado = '${dados['logradouro']}, ${dados['bairro']}, ${dados['localidade']} - ${dados['uf']}';
+        resultado = '${dados.logradouro}, ${dados.bairro}, ${dados.localidade} - ${dados.uf}';
       });
     } catch (e) {
       setState(() {
@@ -111,7 +112,7 @@ class QuadrocepState extends State<Quadrocep> {
                       onPressed: () {
                         setState(() {
                           txtcep.clear();
-                          resultado = 'Seu endereço será exibido aqui';
+                          resultado = 'O endereço será exibido aqui';
                         });
                       },
                       style: ElevatedButton.styleFrom(
