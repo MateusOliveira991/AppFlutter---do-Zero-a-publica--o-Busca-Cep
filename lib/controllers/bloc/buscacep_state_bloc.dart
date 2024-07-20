@@ -35,3 +35,8 @@ class ErrorBuscaCepState extends BuscacepStateBloc{
       @override
       List<Object> get props => [message];
 }
+//inclui um estado de lista vazia
+class EmptyBuscaCepState extends BuscacepStateBloc{
+  @override
+  List<Object>get props => [];
+}
