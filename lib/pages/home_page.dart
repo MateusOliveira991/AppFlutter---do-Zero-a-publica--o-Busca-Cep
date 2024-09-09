@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:your_app_buscaenderecoporcep/widgets/quadrocep.dart';
-import 'package:your_app_buscaenderecoporcep/widgets/iconemap.dart'; 
+import 'package:busca_endereco/widgets/quadrocep.dart';
+import 'package:busca_endereco/widgets/iconemap.dart'; 
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});

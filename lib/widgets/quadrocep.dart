@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:your_app_buscaenderecoporcep/models/cep_model.dart';
-import 'package:your_app_buscaenderecoporcep/services/cep_service.dart';
+import 'package:busca_endereco/models/cep_model.dart';
+import 'package:busca_endereco/services/cep_service.dart';
 
 class Quadrocep extends StatefulWidget {
   const Quadrocep({super.key});

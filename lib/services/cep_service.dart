@@ -1,7 +1,7 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-import 'package:your_app_buscaenderecoporcep/models/cep_model.dart';
+import 'package:busca_endereco/models/cep_model.dart';
 
 class CepService {
   // Função para validar o CEP

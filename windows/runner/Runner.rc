@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "br.com.mateus" "\0"
-            VALUE "FileDescription", "your_app_buscaenderecoporcep" "\0"
+            VALUE "FileDescription", "busca_endereco" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "your_app_buscaenderecoporcep" "\0"
+            VALUE "InternalName", "busca_endereco" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2024 br.com.mateus. All rights reserved." "\0"
-            VALUE "OriginalFilename", "your_app_buscaenderecoporcep.exe" "\0"
-            VALUE "ProductName", "your_app_buscaenderecoporcep" "\0"
+            VALUE "OriginalFilename", "busca_endereco.exe" "\0"
+            VALUE "ProductName", "busca_endereco" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

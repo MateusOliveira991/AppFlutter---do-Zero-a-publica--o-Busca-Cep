@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:your_app_buscaenderecoporcep/pages/home_page.dart';
-import 'package:your_app_buscaenderecoporcep/core/colors.dart';
+import 'package:busca_endereco/pages/home_page.dart';
+import 'package:busca_endereco/core/colors.dart';
 
 
 

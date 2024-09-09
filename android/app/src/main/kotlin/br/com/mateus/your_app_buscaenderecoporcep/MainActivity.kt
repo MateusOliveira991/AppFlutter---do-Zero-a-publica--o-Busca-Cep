@@ -1,4 +1,4 @@
-package br.com.mateus.your_app_buscaenderecoporcep
+package br.com.mateus.busca_endereco
 
 import io.flutter.embedding.android.FlutterActivity
 

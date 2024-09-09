@@ -1,6 +1,6 @@
 {
-    "name": "your_app_buscaenderecoporcep",
-    "short_name": "your_app_buscaenderecoporcep",
+    "name": "busca_endereco",
+    "short_name": "busca_endereco",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
